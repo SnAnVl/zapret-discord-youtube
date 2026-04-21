@@ -54,6 +54,8 @@ if "%1"=="admin" (
 :: MENU ================================
 setlocal EnableDelayedExpansion
 :menu
+chcp 437 > nul
+mode con:cols=121 lines=31
 cls
 call :ipset_switch_status
 call :game_switch_status
@@ -84,6 +86,9 @@ echo   :: TOOLS
 echo      10. Run Diagnostics
 echo      11. Run Tests
 echo.
+echo   :: INFORMATION
+echo      12. Help
+echo.
 echo   ----------------------------------------
 echo      0. Exit
 echo.
@@ -101,6 +106,7 @@ if "%menu_choice%"=="8" goto hosts_update
 if "%menu_choice%"=="9" goto service_check_updates
 if "%menu_choice%"=="10" goto service_diagnostics
 if "%menu_choice%"=="11" goto run_tests
+if "%menu_choice%"=="12" goto show_info_ru
 if "%menu_choice%"=="0" exit /b
 goto menu
 
@@ -988,6 +994,50 @@ start "" powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0utils\test za
 pause
 goto menu
 
+:: INFORMATION =======================
+:show_info_ru
+chcp 65001 > nul
+mode con:cols=150 lines=37
+cls
+echo.
+echo   INFORMATION--------------------------------------------------------------------------------------------------------------------------------------
+echo   winws - Программа которая модифицирует пакеты данных
+echo   WinDivert - Драйвер для перехвата пакетов из ядра
+echo.
+echo   :: SERVICE
+echo      Install Service ---- Установка любой стратегии в автозапуск
+echo      Remove Services ---- Удаление стратегии и WinDivert из служб
+echo      Check Status ------- Проверка статуса обхода и служб (стратегии на автозапуске и WinDivert)
+echo.
+echo   :: SETTINGS
+echo      Game Filter -------- Переключение режима обхода для игр (и других сервисов, использующих UDP и TCP на портах выше 1023)
+echo      IPSet Filter ------- Переключение режима обхода сервисов из ipset-all.txt
+echo                           В скобках указан текущий статус:
+echo                            none - никакие айпи не попадают под проверку
+echo                            loaded - айпи проверяется на вхождение в список
+echo                            any - любой айпи попадает под фильтр
+echo      Auto-Update Check -- Вкл/Выкл автоматическую проверку на обновления
+echo.
+echo   :: UPDATES
+echo      Update IPSet List -- Обновить лист IPSet из удалёного репозитория
+echo      Update Hosts File -- Обновление файла hosts для починки веб версии телеграма и подключения к голосовому чату Discord
+echo      Check for Updates -- Проверка на обновления
+echo.
+echo   :: TOOLS
+echo      Run Diagnostics ---- Диагностика на распространённые причины, по которым zapret может не работать.
+echo                           В конце можно очистить кэш Discord, что может помочь, если он неожиданно перестал работать
+echo.
+echo      Run Tests ---------- Запуск утилиты для проверки стратегий на работоспособность:
+echo                           Standard tests - проверка сайтов из utils/targets.txt
+echo                           DPI checkers - проверка DPI на различных провайдерах (Cloudflare, Amazon и др.)
+echo.
+echo   Для дополнительной информации рекомендую ознакомиться с README по ссылке: https://github.com/Flowseal/zapret-discord-youtube/blob/main/README.md
+echo   Если у вас возникла проблема напишите в Issues: https://github.com/Flowseal/zapret-discord-youtube/issues
+echo.
+
+pause
+mode con:cols=121 lines=31
+goto menu
 
 :: Utility functions
 
