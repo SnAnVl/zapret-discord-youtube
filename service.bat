@@ -93,7 +93,7 @@ echo   ----------------------------------------
 echo      0. Exit
 echo.
 
-set /p menu_choice=   Select option (0-11): 
+set /p menu_choice=   Select option (0-12): 
 
 if "%menu_choice%"=="1" goto service_install
 if "%menu_choice%"=="2" goto service_remove
@@ -1000,9 +1000,8 @@ chcp 65001 > nul
 mode con:cols=150 lines=37
 cls
 echo.
-echo   INFORMATION--------------------------------------------------------------------------------------------------------------------------------------
-echo   winws - Программа которая модифицирует пакеты данных
-echo   WinDivert - Драйвер для перехвата пакетов из ядра
+echo   INFORMATION
+echo   -------------------------------------------------------------------------------------------------------------------------------------------------
 echo.
 echo   :: SERVICE
 echo      Install Service ---- Установка любой стратегии в автозапуск
@@ -1028,15 +1027,14 @@ echo      Run Diagnostics ---- Диагностика на распростра�
 echo                           В конце можно очистить кэш Discord, что может помочь, если он неожиданно перестал работать
 echo.
 echo      Run Tests ---------- Запуск утилиты для проверки стратегий на работоспособность:
-echo                           Standard tests - проверка сайтов из utils/targets.txt
-echo                           DPI checkers - проверка DPI на различных провайдерах (Cloudflare, Amazon и др.)
+echo                            Standard tests - проверка сайтов из utils/targets.txt
+echo                            DPI checkers - проверка DPI на различных провайдерах (Cloudflare, Amazon и др.)
 echo.
 echo   Для дополнительной информации рекомендую ознакомиться с README по ссылке: https://github.com/Flowseal/zapret-discord-youtube/blob/main/README.md
 echo   Если у вас возникла проблема напишите в Issues: https://github.com/Flowseal/zapret-discord-youtube/issues
 echo.
 
 pause
-mode con:cols=121 lines=31
 goto menu
 
 :: Utility functions
