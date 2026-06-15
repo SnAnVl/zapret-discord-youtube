@@ -53,9 +53,8 @@ if "%1"=="admin" (
 
 :: MENU ================================
 setlocal EnableDelayedExpansion
-title ZAPRET SERVICE MANAGER v!LOCAL_VERSION!
 :menu
-
+title ZAPRET SERVICE MANAGER v!LOCAL_VERSION! - Menu
 cls
 
 call :ipset_switch_status
@@ -137,6 +136,7 @@ exit /b
 
 :: STATUS ==============================
 :service_status
+title ZAPRET SERVICE MANAGER v!LOCAL_VERSION! - Check Status
 cls
 chcp 437 > nul
 
@@ -190,6 +190,7 @@ exit /b
 
 :: REMOVE ==============================
 :service_remove
+title ZAPRET SERVICE MANAGER v!LOCAL_VERSION! - Remove Service
 cls
 chcp 65001 > nul
 
@@ -225,6 +226,7 @@ goto menu
 
 :: INSTALL =============================
 :service_install
+title ZAPRET SERVICE MANAGER v!LOCAL_VERSION! - Install Service
 cls
 chcp 437 > nul
 
@@ -366,6 +368,7 @@ goto menu
 
 :: CHECK UPDATES =======================
 :service_check_updates
+title ZAPRET SERVICE MANAGER v!LOCAL_VERSION! - Check Update
 chcp 437 > nul
 cls
 
@@ -409,6 +412,7 @@ goto menu
 
 :: DIAGNOSTICS =========================
 :service_diagnostics
+title ZAPRET SERVICE MANAGER v!LOCAL_VERSION! - Run Diagnostic
 chcp 437 > nul
 cls
 
@@ -747,6 +751,7 @@ exit /b
 
 
 :game_switch
+title ZAPRET SERVICE MANAGER v!LOCAL_VERSION! - Game Filter
 chcp 437 > nul
 cls
 
@@ -798,6 +803,7 @@ exit /b
 
 
 :check_updates_switch
+title ZAPRET SERVICE MANAGER v!LOCAL_VERSION! - Auto-Update Check
 chcp 437 > nul
 cls
 
@@ -834,6 +840,7 @@ exit /b
 
 
 :ipset_switch
+title ZAPRET SERVICE MANAGER v!LOCAL_VERSION! - IPSet Filter
 chcp 437 > nul
 cls
 
@@ -881,6 +888,7 @@ goto menu
 
 :: IPSET UPDATE =======================
 :ipset_update
+title ZAPRET SERVICE MANAGER v!LOCAL_VERSION! - Update IPSet List
 chcp 437 > nul
 cls
 
@@ -914,6 +922,7 @@ goto menu
 
 :: HOSTS UPDATE =======================
 :hosts_update
+title ZAPRET SERVICE MANAGER v!LOCAL_VERSION! - Update Hosts File
 chcp 437 > nul
 cls
 
@@ -981,6 +990,7 @@ goto menu
 
 :: RUN TESTS =============================
 :run_tests
+title ZAPRET SERVICE MANAGER v!LOCAL_VERSION! - Run Tests
 chcp 437 >nul
 cls
 
