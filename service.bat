@@ -266,13 +266,9 @@ if not defined selectedFile (
     goto menu
 )
 
-:: Args that should be followed by value
-set "args_with_value=sni host altorder"
-
-:: Parsing args (mergeargs: 2=start param|3=arg with value|1=params args|0=default)
+:: Parsing args
 set "args="
 set "capture=0"
-set "mergeargs=0"
 set "BIN=%~dp0bin\"
 set "LISTS=%~dp0lists\"
 set "LUA=%~dp0lua\"
