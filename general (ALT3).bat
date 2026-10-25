@@ -100,7 +100,7 @@ start "zapret: %~n0" /min "%BIN%winws2.exe" --debug=0 --wf-tcp-empty=0 --ctrack-
 --lua-desync=fake:blob=tls_sferum:tcp_ts=-600000 ^
 --lua-desync=hostfakesplit:host=ya.ru:tcp_ts=-600000 ^
 --payload=unknown ^
---lua-desync=fake:blob=tls_sferum:tcp_ts=-600000:payload=all ^
+--lua-desync=fake:blob=tls_sferum:tls_mod=rnd,sni=ya.ru:tcp_ts=-600000:payload=all ^
 --new ^
 
 --name="GameFilter Bypass UDP" ^

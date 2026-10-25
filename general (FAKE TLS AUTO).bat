@@ -108,7 +108,7 @@ start "zapret: %~n0" /min "%BIN%winws2.exe" --debug=0 --wf-tcp-empty=0 --ctrack-
 --lua-desync=multidisorder:pos=1,midsld ^
 --payload=unknown ^
 --lua-desync=fake:blob=zero4:tcp_seq=-10000:tcp_ack=-66000:repeats=11:payload=all ^
---lua-desync=fake:blob=tls_sferum:tcp_seq=-10000:tcp_ack=-66000:repeats=11:payload=all ^
+--lua-desync=fake:blob=tls_sferum:tls_mod=rnd,sni=www.google.com:tcp_seq=-10000:tcp_ack=-66000:repeats=11:payload=all ^
 --lua-desync=multidisorder:pos=1,midsld:payload=all ^
 --new ^
 
