@@ -204,9 +204,9 @@ if !errorlevel!==0 (
     echo Service "%SRVCNAME%" is not installed.
 )
 
-tasklist /FI "IMAGENAME eq winws2.exe" | find /I "winws2.exe" > nul
+tasklist | findstr /I /L /C:"winws.exe" /C:"winws2.exe" > nul
 if !errorlevel!==0 (
-    taskkill /IM winws2.exe /F > nul
+    taskkill /IM winws.exe /IM winws2.exe /F > nul 2>&1
 )
 
 sc query "WinDivert" >nul 2>&1

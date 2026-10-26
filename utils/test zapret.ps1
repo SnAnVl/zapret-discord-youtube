@@ -585,9 +585,9 @@ if (-not $batFiles -or $batFiles.Count -eq 0) {
     exit 1
 }
 
-# Stop winws2
+# Stop winws/winws2
 function Stop-Zapret {
-    Get-Process -Name "winws2" -ErrorAction SilentlyContinue | Stop-Process -Force
+    Get-Process -Name "winws", "winws2" -ErrorAction SilentlyContinue | Stop-Process -Force
 }
 
 # Capture/restore running winws2 instances to return user ipset/config
